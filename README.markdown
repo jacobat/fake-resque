@@ -13,11 +13,23 @@ Usage
     # That's it.
 
     # To use the real Resque
-    
+
     FakeResque.deactivate!
 
     # To disable the real Resque again
-    
+
+    FakeResque.activate!
+
+    # To drop messages being sent through Resque
+
+    FakeResque.block!
+
+    # To start sending messages again
+
+    FakeResque.unblock!
+
+    # Or
+
     FakeResque.activate!
 
 Installation

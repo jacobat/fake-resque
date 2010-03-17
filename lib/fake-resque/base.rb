@@ -6,6 +6,7 @@ module FakeResque
       remove_const(:Resque)
       const_set(:Resque, FakeResque::Resque)
     end
+    unblock!
     true
   end
 
@@ -15,6 +16,14 @@ module FakeResque
       const_set(:Resque, RealResque)
     end
     true
+  end
+
+  def self.block!
+    FakeResque::Resque.block!
+  end
+
+  def self.unblock!
+    FakeResque::Resque.unblock!
   end
 end
 
