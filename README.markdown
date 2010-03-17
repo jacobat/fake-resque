@@ -38,6 +38,11 @@ Once you've made your great commits:
 4. Create an [Issue][1] with a link to your branch
 5. That's it!
 
+Acknowledgements
+----------------
+
+Based on the [fakefs library][2] by defunkt.
+
 Meta
 ----
 
@@ -48,3 +53,4 @@ Meta
 
 [0]: http://help.github.com/forking/
 [1]: http://github.com/jacobat/fake-resque/issues
+[2]: http://github.com/defunkt/fakefs
