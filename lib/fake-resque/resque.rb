@@ -15,6 +15,11 @@ module FakeResque
       def unblock!
         @forward = true
       end
+
+      def redis=(redis)
+        RealResque.redis = redis
+      end
+
     end
   end
 end
