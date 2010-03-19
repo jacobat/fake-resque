@@ -1,6 +1,6 @@
 module FakeResque
   module Version
-    VERSION = "0.2.0"
+    VERSION = "0.2.1"
 
     def self.to_s
       VERSION
