@@ -8,7 +8,7 @@ and execute any Resque calls synchronously instead of asynchronously.
 Usage
 -----
 
-    require 'fakefs'
+    require 'fake-resque'
 
     # That's it.
 
