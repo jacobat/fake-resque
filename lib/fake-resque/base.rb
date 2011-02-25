@@ -1,31 +1,28 @@
-RealResque          = Resque
+require 'fake-resque/faker'
 
 module FakeResque
+  @@orig_enqueue_method = nil
   def self.activate!
-    Object.class_eval do
-      remove_const(:Resque)
-      const_set(:Resque, FakeResque::Resque)
-    end
+    Resque.start_faking!
     unblock!
     true
   end
 
   def self.deactivate!
-    Object.class_eval do
-      remove_const(:Resque)
-      const_set(:Resque, RealResque)
-    end
+    Resque.stop_faking!
     true
   end
 
   def self.block!
-    FakeResque::Resque.block!
+    Resque.block!
   end
 
   def self.unblock!
-    FakeResque::Resque.unblock!
+    Resque.unblock!
   end
 end
+
+Resque.extend(FakeResque::Faker)
 
 def FakeResque
   return ::FakeResque unless block_given?
