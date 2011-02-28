@@ -5,7 +5,13 @@ module FakeResque
     def fake_push(queue, item)
       if @forward
         payload = decode(encode(item))
-        Resque::Job.new(queue, payload).perform
+        job=Resque::Job.new(queue, payload)
+        begin
+          job.perform
+        rescue Object=>e
+          job.fail(e)
+          # Eat the error because logically it happened in a worker
+        end
       end
     end
 
