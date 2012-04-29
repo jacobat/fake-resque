@@ -10,7 +10,10 @@ module FakeResque
           job.perform
         rescue Object=>e
           job.fail(e)
-          # Eat the error because logically it happened in a worker
+
+          if FakeResque.raise_errors?
+            raise e
+          end
         end
       end
     end
@@ -18,7 +21,7 @@ module FakeResque
     def block!
       @forward = false
     end
-    
+
     def unblock!
       @forward = true
     end

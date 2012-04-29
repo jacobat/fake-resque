@@ -20,6 +20,18 @@ module FakeResque
   def self.unblock!
     Resque.unblock!
   end
+
+  def self.raise_errors!
+    @raise_errors = true
+  end
+
+  def self.suppress_errors!
+    @raise_errors = false
+  end
+
+  def self.raise_errors?
+    @raise_errors
+  end
 end
 
 Resque.extend(FakeResque::Faker)
