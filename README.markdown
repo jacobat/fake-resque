@@ -32,6 +32,15 @@ Usage
 
     FakeResque.activate!
 
+    # By default FakeResque will swallow any errors. To raise errors
+
+    FakeResque.raise_errors!
+
+    # To restore the original behavior of swallowing errors
+
+    FakeResque.suppress_errors!
+
+
 Installation
 ------------
 
